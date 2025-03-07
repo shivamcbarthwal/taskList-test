@@ -11,7 +11,7 @@ import { MatListModule } from '@angular/material/list';
   imports: [CommonModule, MatCheckboxModule, MatButtonModule, MatListModule],
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss'],
-  //changeDetection: ChangeDetectionStrategy.OnPush // Prevents unecessay renders of unchanged task items.
+  changeDetection: ChangeDetectionStrategy.OnPush // Prevents unecessay renders of unchanged task items.
 })
 /**
  * Represents a component for displaying and interacting with a single todo item.
@@ -44,7 +44,6 @@ export class TodoItemComponent {
   }
 
   onToggle() {
-    console.log("✅ Toggle Clicked. Task Before Toggle:", this.task);
     this.toggle.emit({ ...this.task, completed: !this.task.completed });
   }
 

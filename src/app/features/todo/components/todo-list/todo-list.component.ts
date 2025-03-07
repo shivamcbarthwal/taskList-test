@@ -17,7 +17,7 @@ import { CacheService } from '../../../../core/services/cache.service';
   imports: [CommonModule, TodoItemComponent, MatListModule, ScrollingModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule],
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 /**
  * Represents the TodoListComponent class.
@@ -27,7 +27,7 @@ export class TodoListComponent implements OnInit {
   searchControl = new FormControl('');
   tasks$!: Observable<Todo[]>;
 
-  constructor(private todoService: TodoService, private cacheService: CacheService, private cdr: ChangeDetectorRef) {}
+  constructor(private todoService: TodoService, private cacheService: CacheService) {}
 
   ngOnInit(): void {
     this.tasks$ = this.todoService.tasks$;
@@ -57,10 +57,7 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteTask(task: Todo) {
-    this.todoService.deleteTask(task.id).subscribe(() => {
-      console.log("🔄 Forcing UI update after delete...");
-      this.cdr.detectChanges(); // ✅ Manually trigger change detection
-    })
+    this.todoService.deleteTask(task.id).subscribe();
   };
 
   generateLargeDataset() {
