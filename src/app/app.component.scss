@@ -1,0 +1,20 @@
+/* Ensures the toolbar stays fixed at the top */
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+  
+  /* Ensures content is positioned correctly below the toolbar */
+  .container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 80px auto 0; /* Offset to avoid overlapping toolbar */
+  }

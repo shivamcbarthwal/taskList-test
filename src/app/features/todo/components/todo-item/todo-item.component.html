@@ -1,0 +1,35 @@
+<mat-list-item class="task-item" [class.completed]="task.completed">
+    <!-- Editable Input -->
+    <input *ngIf="isEditing"
+           #editInput
+           [value]="task.title"
+           (keyup.enter)="saveEdit()"
+           class="edit-input"
+           autofocus
+    >
+
+    <!-- Display Title -->
+    <span *ngIf="!isEditing" class="task-title" (click)="enableEditing()">{{ task.title }}</span>
+  
+    <div class="action-buttons">
+      <!-- Save Button (Visible only when editing) -->
+      <button *ngIf="isEditing" mat-icon-button color="primary" (click)="saveEdit()">
+        💾
+      </button>
+  
+      <!-- Cancel Button (Visible only when editing) -->
+      <button *ngIf="isEditing" mat-icon-button color="warn" (click)="cancelEdit()">
+        ❌
+      </button>
+  
+      <!-- Toggle Completion -->
+      <button *ngIf="!isEditing" mat-icon-button color="accent" (click)="onToggle()">
+        ✅
+      </button> 
+  
+      <!-- Delete Button -->
+      <button *ngIf="!isEditing" mat-icon-button color="warn" (click)="onDelete()">
+        🗑️
+      </button>
+    </div>
+  </mat-list-item>

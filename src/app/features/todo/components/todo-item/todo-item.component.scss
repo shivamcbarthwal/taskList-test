@@ -1,0 +1,62 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Title and buttons stay aligned */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: all 0.3s ease-in-out;
+  gap: 10px;
+}
+
+/* Task Title & Editable Input */
+.task-title,
+.edit-input {
+  flex-grow: 1; /* Ensures title/input take up available space */
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+/* Completed Task Styling */
+.task-item.completed .task-title {
+  text-decoration: line-through; /* Add strike-through effect */
+  color: gray; /* Make text slightly faded */
+  opacity: 0.7;
+}
+
+.task-item.completed {
+  opacity: 0.7; /* Make entire row slightly faded */
+}
+
+.edit-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Prevents shrinking */
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Button Styling */
+.action-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: none;
+  border: none;
+}
+
+.action-buttons button:hover {
+  opacity: 0.8;
+}

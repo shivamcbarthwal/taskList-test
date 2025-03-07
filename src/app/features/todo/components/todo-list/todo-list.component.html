@@ -1,0 +1,19 @@
+<!-- Search Bar --> 
+<mat-form-field appearance="outline" class="search-bar">
+    <mat-label>Search tasks</mat-label>
+    <input matInput [formControl]="searchControl" placeholder="Search tasks...">
+</mat-form-field> 
+
+<cdk-virtual-scroll-viewport itemSize="50" class="todo-list-container">
+    <mat-list role="list">
+        <app-todo-item
+        *cdkVirtualFor="let task of tasks$ | async"
+        [task]="task"
+        (toggle)="toggleTask($event)"
+        (delete)="deleteTask(task)"
+        (edit)="editTask($event)">
+        </app-todo-item>
+    </mat-list>
+</cdk-virtual-scroll-viewport>
+<br>
+<button mat-raised-button class="load-button" (click)="generateLargeDataset()">Load Large Task List</button>

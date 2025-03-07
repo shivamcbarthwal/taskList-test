@@ -1,0 +1,24 @@
+.search-bar {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .todo-list-container {
+    height: 400px;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background: white; /* Ensures a clean look */
+    margin: auto; /* Centering */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .load-button {
+    margin-top: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
