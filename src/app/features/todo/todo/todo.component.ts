@@ -9,8 +9,7 @@ import { TodoFormComponent } from '../components/todo-form/todo-form.component';
   standalone: true,
   imports: [CommonModule, TodoListComponent, TodoFormComponent],
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush // ✅ Optimize for better performance
+  styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent {
   constructor(private todoService: TodoService) {}
